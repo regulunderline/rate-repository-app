@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   text: {
     color: 'white',
     padding: 25,
-    fontWeight: '900'
+    fontWeight: theme.fontWeights.bold
   }
 });
 
