@@ -1,9 +1,10 @@
-import { Pressable, Text } from "react-native"
+import { Text } from "react-native"
+import { Link } from "react-router-native"
 
-const AppBartab = ({ styles, children }) => (
-    <Pressable>
+const AppBartab = ({ styles, route, children }) => (
+    <Link to={route}>
       <Text style={styles.text}>{children}</Text>
-    </Pressable>
+    </Link>
 )
 
 export default AppBartab
