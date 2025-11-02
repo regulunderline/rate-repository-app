@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import theme from '../theme';
 import useSignIn from '../hooks/useSignIn'
 import Text from './Text';
+import AuthStorage from '../utils/authStorage'
 
 const styles = StyleSheet.create({
   flexContainer: {
@@ -99,7 +100,7 @@ const SignIn = () => {
 
     try {
       const { data } = await signIn({ username, password });
-      console.log(data);
+      console.log(data.authenticate.accessToken);
     } catch (e) {
       console.log(e);
     }
