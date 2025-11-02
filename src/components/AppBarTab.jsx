@@ -1,4 +1,4 @@
-import { Text } from "react-native"
+import Text from "./Text"
 import { Link } from "react-router-native"
 
 const AppBartab = ({ styles, route, children }) => (
