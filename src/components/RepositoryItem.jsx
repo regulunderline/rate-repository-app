@@ -5,7 +5,7 @@ import theme from '../theme'
 const styles = StyleSheet.create({
   flexContainer: {
     display: 'flex',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   flexItemA: {
     flexGrow: 0,
