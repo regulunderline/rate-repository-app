@@ -34,7 +34,7 @@ const toFormated = number => number >= 1000
   : number
 
 const RepositoryItem = ({ item }) => (
-  <View style={styles.flexContainer}>
+  <View testID="repositoryItem" style={styles.flexContainer}>
     <View style={[styles.flexContainer, {flexDirection: 'row', justifyContent: 'flex-start'}]}>
       <Image 
         style={[{width:40,height:40, margin:10}]}
