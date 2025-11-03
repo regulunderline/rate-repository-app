@@ -1,4 +1,6 @@
-import { View, Image, StyleSheet } from "react-native"
+import { View, Image, StyleSheet, Pressable } from "react-native"
+import { openURL } from 'expo-linking'
+
 import Text from './Text' 
 import theme from '../theme'
 
@@ -33,7 +35,7 @@ const toFormated = number => number >= 1000
   ? `${Math.round(number/100)/10}k`
   : number
 
-const RepositoryItem = ({ item }) => (
+const RepositoryItem = ({ item, showUrl }) => (
   <View testID="repositoryItem" style={styles.flexContainer}>
     <View style={[styles.flexContainer, {flexDirection: 'row', justifyContent: 'flex-start'}]}>
       <Image 
@@ -66,6 +68,17 @@ const RepositoryItem = ({ item }) => (
         <Text style={styles.textSecondary}>Rating</Text>
       </View>
     </View>
+    {showUrl && 
+      <Pressable onPress={() => {openURL(item.url)}}>
+        <View style={[ styles.flexItemB, { alignSelf: 'stretch', margin: 10 }]}>
+          <Text 
+            style={{ color: 'white', alignSelf: 'center', padding: 10}}
+          >
+            Open in GitHub
+          </Text>
+        </View>
+      </Pressable>
+    }
   </View>
 )
 
