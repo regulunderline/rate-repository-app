@@ -11,13 +11,13 @@ const styles = StyleSheet.create({
   },
   flexItemB: {
     flexGrow: 0,
-    width: 30,
-    height: 30,
+    width: 40,
+    height: 40,
     backgroundColor: 'white',
-    borderRadius: 15,
+    borderRadius: 20,
     borderWidth: 1,
     borderColor: theme.colors.primary,
-    padding: 4,
+    paddingTop: 9,
     margin: 10
   },
   textPrimary: {

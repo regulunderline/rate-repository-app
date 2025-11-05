@@ -33,6 +33,7 @@ const AppBar = () => {
   return <View style={styles.container}>
     <ScrollView horizontal>
       <AppBarTab styles={styles} route='/'>Repositories</AppBarTab>
+      {me && <AppBarTab styles={styles} route='/createreview'>Create a review</AppBarTab>}
       {me 
         ? <AppBarTab styles={styles} route={'/signin'} handlePress={handleSignOut}>Sign Out</AppBarTab>
         : <AppBarTab styles={styles} route={'/signin'}>Sign In</AppBarTab>
