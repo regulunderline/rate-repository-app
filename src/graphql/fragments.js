@@ -11,7 +11,6 @@ export const REPOSITORY_DETAILS = gql`
     ratingAverage
     id
     ownerAvatarUrl
-    url
   }
 `
 

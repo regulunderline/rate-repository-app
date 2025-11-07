@@ -11,6 +11,11 @@ const useMe = () => {
     return { me: null, loading }
   }
 
+  if(error){
+    console.log(error)
+    throw new Error(error.message)
+  }
+
   return { me: data.me, loading } 
 };
 
