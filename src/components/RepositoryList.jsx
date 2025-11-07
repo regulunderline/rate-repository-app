@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-export const RepositoryListContainer = ({ repositories, order, setOrder, setSearch }) => {
+export const RepositoryListContainer = ({ repositories, onEndReach, order, setOrder, setSearch }) => {
   const navigate = useNavigate()
   const repositoryNodes = repositories
     ? repositories.edges.map((edge) => edge.node)
@@ -24,6 +24,8 @@ export const RepositoryListContainer = ({ repositories, order, setOrder, setSear
   return (
     <FlatList
       data={repositoryNodes}
+      onEndReached={onEndReach}
+      onEndReachedThreshold={0.5}
       ItemSeparatorComponent={ItemSeparator}
       ListHeaderComponent={
         <View style={{ padding: 10 }}>
@@ -67,11 +69,16 @@ const RepositoryList = () => {
   const [order, setOrder] = useState("Latest repositories")
   const [search, setSearch] = useState('')
   const [searchKeyword] = useDebounce(search, 500)
-  const { repositories } = useRepositories(order, searchKeyword);
+  const { repositories, fetchMore, loading } = useRepositories(order, searchKeyword, 5);
+
+  const onEndReach = () => {
+    !loading && fetchMore();
+  };
 
   return <RepositoryListContainer 
     repositories={repositories} 
     order={order} 
+    onEndReach={onEndReach}
     setOrder={setOrder} 
     setSearch={setSearch} 
   />;

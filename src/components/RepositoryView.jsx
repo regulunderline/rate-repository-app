@@ -24,17 +24,23 @@ const ItemSeparator = () => <View style={styles.separator} />;
 
 const SingleRepository = () => {
   const id = useParams(id)
-  const { repository } = useOneRepository(id);
+  const { repository, loading, fetchMore } = useOneRepository(id, 5);
 
   if(!repository) {
     return null
   }
+
+  const onEndReach = () => {
+    fetchMore();
+  };
 
   const reviews = repository.reviews.edges
 
   return (
     <FlatList
       data={reviews}
+      onEndReached={onEndReach}
+      onEndReachedThreshold={0.5}
       renderItem={({ item }) => <ReviewItem review={item.node} />}
       ItemSeparatorComponent={ItemSeparator}
       keyExtractor={review => review.node.id}

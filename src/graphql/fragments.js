@@ -27,6 +27,7 @@ export const REVIEW_DETAILS = gql`
           username
         }
       }
+      cursor
     }
   }
 `
