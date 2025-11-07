@@ -36,6 +36,7 @@ const AppBar = () => {
       {me 
         ? <>
             <AppBarTab styles={styles} route='/createreview'>Create a review</AppBarTab>
+            <AppBarTab styles={styles} route='/myreviews'>My reviews</AppBarTab>
             <AppBarTab styles={styles} route={'/signin'} handlePress={handleSignOut}>Sign Out</AppBarTab>
           </>
         : <>
